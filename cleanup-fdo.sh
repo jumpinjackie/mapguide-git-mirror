@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 rm -rf prepared/fdo.git
 cp -R pristine/fdo.git prepared/fdo.git

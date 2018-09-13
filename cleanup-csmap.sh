@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 rm -rf prepared/csmap.git
 cp -R pristine/csmap.git prepared/csmap.git

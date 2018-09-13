@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 rm -rf prepared/mapguide.git
 cp -R pristine/mapguide.git prepared/mapguide.git
