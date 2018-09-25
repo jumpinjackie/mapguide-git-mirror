@@ -3,7 +3,7 @@
 rm -rf prepared/mapguide.git
 cp -R pristine/mapguide.git prepared/mapguide.git
 pushd prepared/mapguide.git
-java -jar ../../bfg.jar --protect-blobs-from master,3.1 --delete-folders Maestro --strip-blobs-bigger-than 5M
+java -jar ../../bfg.jar --protect-blobs-from master,3.1 --delete-folders Maestro --strip-blobs-bigger-than 5M --private
 git filter-branch --msg-filter "perl -lape 's/#(\d+)/\[https:\/\/trac\.osgeo\.org\/mapguide\/ticket\/\$1\]/g'" -- --all
 git reflog expire --expire=now --all && git gc --prune=now --aggressive
 # Prune Maestro Branches
