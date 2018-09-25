@@ -1,5 +1,5 @@
-Git Mirroring System for MapGuide (and related SVN reposiories)
-===============================================================
+Git Mirroring System for MapGuide (and related SVN repositories)
+================================================================
 
 A series of scripts to create read-only git mirrors of MapGuide/FDO/CS-Map/Fusion
 
@@ -10,11 +10,42 @@ Requirements
  * git
  * git-svn
  * git-lfs
- * bfg (put `bfg.jar` into this clone)
+ * default-jre + bfg (put `bfg.jar` into this clone)
  * ruby + svn2git (install via `gem`)
 
-Overview
-========
+First time setup
+================
+
+After cloning this repo and meeting all the above requirements, run the various `init-` scripts to create the initial "pristine" git conversion of their respective SVN repositories.
+
+After the initial conversion (this will take a while), run the various `cleanup-` scripts to create a "prepared" version of each respective git repositories. This uses `bfg` and `git-filter-branch` to:
+
+ * Delete large blobs or move them to git LFS (as is the case for CS-Map dictionary files)
+ * Tidy up svn commit messages (translating trac ticket numbers to URLs as trac ticket numbers have dual meaning in GitHub, for both issues and pull requests)
+ 
+After the cleanup is done, push the prepared clones to their origins (NOTE: The cleanup script assumes this author's GitHub repos as the origin to push to, modify as necessary for your own mirrors):
+
+```
+git push -u origin --all --force
+git push -u origin --tags --force
+```
+ 
+Updating mirrors with recent SVN changes
+========================================
+
+Run the various `update-pristine-` script to pull in latest changes from the original SVN repositories (this runs `svn2git --rebase` under the hood for the respective pristine git clones)
+
+Then run the `cleanup-` scripts again to rebuild a new "prepared" copy of the pristine repo.
+
+Afterwards, force push the "prepared" repo to their origins:
+
+```
+git push -u origin --all --force
+git push -u origin --tags --force
+```
+
+Overview of Process
+===================
 
 We use the svn2git tool to initially create "pristine" conversions of:
 
