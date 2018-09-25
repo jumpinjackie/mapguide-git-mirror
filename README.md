@@ -11,7 +11,7 @@ Requirements
  * git-svn
  * git-lfs
  * bfg (put `bfg.jar` into this clone)
- * svn2git
+ * ruby + svn2git (install via `gem`)
 
 Overview
 ========
