@@ -3,6 +3,16 @@ Git Mirroring System for MapGuide (and related SVN reposiories)
 
 A series of scripts to create read-only git mirrors of MapGuide/FDO/CS-Map/Fusion
 
+Requirements
+============
+
+ * Ubuntu 18.04
+ * git
+ * git-svn
+ * git-lfs
+ * bfg (put `bfg.jar` into this clone)
+ * svn2git
+
 Overview
 ========
 
