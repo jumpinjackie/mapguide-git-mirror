@@ -4,7 +4,7 @@ build: false
 image: Visual Studio 2017
 clone_depth: 10
 cache:
-  - "%LOCALAPPDATA%\fdo_downloads"
+  - "%LOCALAPPDATA%\\fdo_downloads"
 environment:
   FDO_MSVC_VER: vc140
   matrix:

@@ -8,7 +8,8 @@ git filter-branch --msg-filter "perl -lape 's/#(\d+)/\[https:\/\/trac\.osgeo\.or
 git reflog expire --expire=now --all && git gc --prune=now --aggressive
 git remote add origin https://github.com/jumpinjackie/fdo.git
 cp ../../overlays/fdo/appveyor.yml .
+cp ../../overlays/fdo/.travis.yml .
 cp ../../overlays/fdo/README.md .
-git add appveyor.yml README.md
+git add appveyor.yml .travis.yml README.md
 git commit -m "Add custom overlay for git-converted repo"
 popd
