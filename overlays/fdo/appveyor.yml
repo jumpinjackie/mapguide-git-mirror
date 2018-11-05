@@ -37,9 +37,9 @@ init:
 
 install:
   # The 3 lines below assume a whole bunch of fdo_thirdparty packages are available for us to download and extract.
-  # - if not exist "%LOCALAPPDATA%\fdo_downloads" mkdir "%LOCALAPPDATA%\fdo_downloads"
-  # - if not exist "%LOCALAPPDATA%\fdo_downloads\fdo_thirdparty_%FDO_OUTDIR%.7z" appveyor DownloadFile "https://github.com/jumpinjackie/fdo/releases/download/appveyor_test/fdo_thirdparty_%FDO_OUTDIR%.7z" -FileName "%LOCALAPPDATA%\fdo_downloads\fdo_thirdparty_%FDO_OUTDIR%.7z"
-  # - 7z x "%LOCALAPPDATA%\fdo_downloads\fdo_thirdparty_%FDO_OUTDIR%.7z" -y >nul
+  - if not exist "%LOCALAPPDATA%\fdo_downloads" mkdir "%LOCALAPPDATA%\fdo_downloads"
+  - if not exist "%LOCALAPPDATA%\fdo_downloads\fdo_thirdparty_%FDO_OUTDIR%.7z" appveyor DownloadFile "https://github.com/jumpinjackie/fdo/releases/download/appveyor_test/fdo_thirdparty_%FDO_OUTDIR%.7z" -FileName "%LOCALAPPDATA%\fdo_downloads\fdo_thirdparty_%FDO_OUTDIR%.7z"
+  - 7z x "%LOCALAPPDATA%\fdo_downloads\fdo_thirdparty_%FDO_OUTDIR%.7z" -y >nul
   - echo FDO_BUILD_CPU    = %FDO_BUILD_CPU%
   - echo FDO_BUILD_CONFIG = %FDO_BUILD_CONFIG%
   - echo FDO_WIN_CPU      = %FDO_WIN_CPU%
@@ -47,8 +47,8 @@ install:
   - echo FDO_OUTDIR       = %FDO_OUTDIR%
   - call setenvironment.bat x86_amd64
   # Uncomment if you need to build a fresh fdo_thirdparty package (ie. Internal thirdparty deps were updated). If you do this, comment out the first 3 lines above
-  - call build_thirdparty.bat -p=%FDO_BUILD_CPU% -c=%FDO_BUILD_CONFIG% -o=%FDO_OUTDIR% -a=buildinstall
-  - call package_thirdparty.bat
+  # - call build_thirdparty.bat -p=%FDO_BUILD_CPU% -c=%FDO_BUILD_CONFIG% -o=%FDO_OUTDIR% -a=buildinstall
+  # - call package_thirdparty.bat
   - call build.bat -p=%FDO_BUILD_CPU% -c=%FDO_BUILD_CONFIG% -o=%FDO_OUTDIR% -a=buildinstall
   - cd %FDO_OUTDIR%\Fdo
   - 7z a fdosdk-%APPVEYOR_BUILD_VERSION%-%FDO_WIN_CPU%-%FDO_BUILD_CONFIG%-%FDO_MSVC_VER%.7z * "-xr!*.pdb"
