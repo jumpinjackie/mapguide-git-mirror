@@ -12,7 +12,7 @@ git tag -l | grep MAESTRO | xargs -L1 git tag -d
 git remote add origin https://github.com/jumpinjackie/mapguide.git
 # Add extras
 cp ../../overlays/mapguide/README.md .
-git submodule add https://github.com/jumpinjackie/cs-map Oem/CsMap
-git submodule add https://github.com/jumpinjackie/fusion Oem/fusion
+git submodule add https://github.com/jumpinjackie/cs-map MgDev/Oem/CsMap
+git submodule add https://github.com/jumpinjackie/fusion MgDev/Oem/fusion
 git commit -m "Add custom overlay for git-converted repo"
 popd
