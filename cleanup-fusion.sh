@@ -8,4 +8,5 @@ git reflog expire --expire=now --all && git gc --prune=now --aggressive
 git remote add origin https://github.com/jumpinjackie/fusion.git
 # Add extras
 cp ../../overlays/fusion/.gitignore .
+git commit -m "Add custom overlay for git-converted repo"
 popd
