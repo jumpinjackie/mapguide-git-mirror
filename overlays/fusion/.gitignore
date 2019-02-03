@@ -1,0 +1,3 @@
+build/*
+lib/fusionSF.js
+lib/fusionSF-compressed.js
